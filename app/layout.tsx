@@ -89,7 +89,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html>
+    <html className="bg-[#CBC6C0]">
       <head />
       <body>
         <Image
