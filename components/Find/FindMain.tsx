@@ -1,6 +1,7 @@
 
 
 import React, { useState } from "react";
+import renderContent from "../FindBody/FindBody";
 import Map from "../map";
 import { useSearchContext } from "../../context/search";
 import { Card } from "@nextui-org/react";
@@ -62,57 +63,7 @@ export default function FindMain() {
     setShowMap(!showMap)
   }
 
-  export function FindMain () {
-    if (windowWidth < 450) {
-      if (showMap) {
-        return <Map coord={location} />;
-      } return (
-        <div className=" min-w-[33%] max-w-[33%]   bg-green-500 scrollbar-bg-blue-500 overflow-auto my-3 pr-3">
-          <div id="List">
-            {searchResults.map((element: any, index: number) => {
-              return (
-                <div key="cardpad" className="p-1">
-                  <Card
-                    isPressable
-                    key={uuidv4()}
-                    onPress={() => handleCard(index)}>
-                    <p>{element.name}</p>
-                    <p>{element.address}</p>
-                    <div></div>
-                  </Card>
-                  <button onClick={() => moreInfo(index)}>More Info</button>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <>
-          <Map coord={location}  />
-          <div className=" min-w-[33%] max-w-[33%]  max-h-[80vh]  bg-red-500 scrollbar-bg-blue-500 overflow-auto my-3 pr-3">
-            <div id="List">
-              {searchResults.map((element: any, index: number) => {
-                return (
-                  <div key="cardpad" className="p-1">
-                    <Card
-                      isPressable
-                      key={uuidv4()}
-                      onPress={() => handleCard(index)}>
-                      <p>{element.name}</p>
-                      <p>{element.address}</p>
-                      <div></div>
-                    </Card>
-                    <button onClick={() => moreInfo(index)}>More Info</button>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </>
-      );
-  };
+  
 
   return (
     <div
@@ -123,7 +74,7 @@ export default function FindMain() {
       <div
         id="main-content-wrapper"
         className=" flex  xs:flex-col sm:flex-col md:flex-row lg:flex-row">
-        {renderContent()}
+        
       
       </div>
     </div>
