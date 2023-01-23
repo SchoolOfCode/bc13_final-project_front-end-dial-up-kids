@@ -42,14 +42,16 @@ export default function MoreInfoBank() {
   const router = useRouter();
   const element = bank;
 
+ 
+
   function goBack() {
     router.push("/find");
   }
 
   const mapCodeDirections = `&origin=${search}&destination=${location}`;
 
-  function handleClick() {
-    console.log(mapCode);
+  function spoopy() {
+    console.log("Mapcode:", mapCode);
     setMapCode(mapCodeDirections);
   }
 
@@ -84,8 +86,9 @@ export default function MoreInfoBank() {
               {element.email}
             </p>
             <Button
-              onClick={() => {
-                console.log("directions clicked");
+              onClick={() => { spoopy();
+               
+                
               }}
             >
               Directions
@@ -94,6 +97,7 @@ export default function MoreInfoBank() {
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
+              
               >
                 <path
                   fillRule="evenodd"

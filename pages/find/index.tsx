@@ -136,9 +136,12 @@ export default function About() {
         "
           >
             {searchResults.map((element: any, index: number) => { 
+              let cardColour = "bg-white"
               function selectedCardCheck(index:number) {
                 if (cardIndex === index)
-               return "bg-[#A5BE00]"
+                cardColour = "bg-[#A5BE00]"
+                console.log (cardColour)
+               return cardColour
               }
             
               return (
