@@ -1,6 +1,6 @@
 "use client";
 const key = process.env.NEXT_PUBLIC_GOOGLE_KEY
-import { useState, useReducer } from "react";
+import { useState, useEffect } from "react";
 import { useSearchContext } from "../../context/search";
 import { v4 as uuidv4 } from "uuid";
 //import { Text, Card, Grid, Button, Row } from "@nextui-org/react";
@@ -19,7 +19,7 @@ export default function About() {
   const router = useRouter();
 
    const [cardIndex, setCardIndex] = useState(0)
-  //  const [cssToggle, setCssToggle] = useState("bg-blue-500")
+   const [cssToggle, setCssToggle] = useState(``)
 
   const cssLightMode =`
     hover:bg-blue-400 
@@ -32,8 +32,17 @@ export default function About() {
   dark:active:bg-blue-900
   `;
   const cardSelectColour = `
-  bg-lime-400 dark:bg-green-600
   `;
+
+useEffect(()=>{
+
+  setCssToggle (`
+  bg-lime-400 dark:bg-green-400
+  `)
+},[cardIndex])
+
+
+
 
   async function fetchComments(index: number) {
     let slugData = searchResults[index].foodbank.slug;
@@ -64,7 +73,7 @@ export default function About() {
 
   function selectedCardCheck(index:number) {
     if (cardIndex === index)
-      return cardSelectColour
+      return cssToggle
   }
 
 
