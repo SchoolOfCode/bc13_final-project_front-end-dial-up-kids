@@ -32,13 +32,11 @@ export default function About() {
   dark:active:bg-blue-900
   `;
   const cardSelectColour = `
+  bg-lime-400 dark:bg-green-400
   `;
 
 useEffect(()=>{
-
-  setCssToggle (`
-  bg-lime-400 dark:bg-green-400
-  `)
+  setCssToggle (cardSelectColour)
 },[cardIndex])
 
 
