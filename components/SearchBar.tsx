@@ -2,11 +2,8 @@
 const key = process.env.NEXT_PUBLIC_GOOGLE_KEY
 //import '../styles/globals.css'
 import { useRouter } from 'next/navigation'
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect } from "react";
-import { SearchContextProvider, useSearchContext } from '../context/search'
-import Router from 'next/router';
+import { useSearchContext } from '../context/search'
+
 
 export default function SearchBar() {
   const {
@@ -14,8 +11,7 @@ export default function SearchBar() {
    } = useSearchContext();
   const router = useRouter();
 
-
-  console.log("SetResults:", setSearchResults)
+  
   function handleChange(event: any) {
     setSearch(event.target.value);
   }

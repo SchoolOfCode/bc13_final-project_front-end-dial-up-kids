@@ -5,6 +5,7 @@ import Image from 'next/image'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -15,6 +16,7 @@ export default function Home() {
 				<div className='flex flex-col margin items-center gap-5 flex-1'>
 					<Link href='/'>
 						<Image
+							data-testid='image'
 							src="/logo1.png"
 							alt="logo-image"
 							width="300"
@@ -26,7 +28,8 @@ export default function Home() {
 						className='text-gray-900 dark:text-gray-300'
 					>Find your nearest food bank:
 					</p>
-					<SearchBar/>
+					<SearchBar
+						data-testid='searchbar'/>
 				</div>	
 			</div>
     </>
