@@ -21,7 +21,19 @@ export default function About() {
    const [cardIndex, setCardIndex] = useState(0)
   //  const [cssToggle, setCssToggle] = useState("bg-blue-500")
 
+  const cssLightMode =`
+    hover:bg-blue-400 
+    active:bg-blue-500
+  `
+  ;
 
+  const cssDarkMode = `
+  dark:hover:bg-blue-800
+  dark:active:bg-blue-900
+  `;
+  const cardSelectColour = `
+  bg-lime-400 dark:bg-green-600
+  `;
 
   async function fetchComments(index: number) {
     let slugData = searchResults[index].foodbank.slug;
@@ -50,6 +62,11 @@ export default function About() {
     setMap(key, searchResults[index].lat_lng);
   }
 
+  function selectedCardCheck(index:number) {
+    if (cardIndex === index)
+      return cardSelectColour
+  }
+
 
 
   return (
@@ -73,9 +90,15 @@ export default function About() {
               <Card
                 key={index}
                 onClick={() => {
-                  handleCard(index);                
+                  handleCard(index);
+                  setCardIndex(index);
+                  selectedCardCheck(index);                
                 }}
-                className="hover:cursor-pointer"
+                className={`
+                hover:cursor-pointer
+                ${cssDarkMode} ${cssLightMode}
+                ${selectedCardCheck(index)}
+                `}
               >
                 <h5 className="text-l font-bold tracking-tight text-gray-900 dark:text-white">
                   {element.name}
@@ -122,10 +145,7 @@ export default function About() {
         "
           >
             {searchResults.map((element: any, index: number) => { 
-              function selectedCardCheck(index:number) {
-                if (cardIndex === index)
-                  return "bg-green-500 dark:bg-green-600"
-              }
+
             
               return (
 
@@ -134,11 +154,12 @@ export default function About() {
                   onClick={() => {
                     handleCard(index);
                     setCardIndex(index);
-                    selectedCardCheck(index)
+                    selectedCardCheck(index);
                   }}
-                  className={ `hover:cursor-pointer ${selectedCardCheck(index)}
-                  hover:bg-yellow-400 dark:hover:bg-yellow-800
-                  active:bg-purple-700 focus:bg-red-500`}
+                  className={ `hover:cursor-pointer 
+                    ${cssDarkMode} ${cssLightMode}
+                    ${selectedCardCheck(index)}
+                 `}
                 >
                   <h5 className="text-l font-bold tracking-tight text-gray-900  dark:text-white">
                     {element.name}
