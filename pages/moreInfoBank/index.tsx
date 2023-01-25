@@ -17,7 +17,7 @@ import MobileMapListSwitch from "../../components/MobileMapListSwitch";
 import { useUser, useSupabaseClient, Session } from '@supabase/auth-helpers-react'
 
 export default function MoreInfoBank() {
-  const {search, location, setLocation, bank, setBank, comments, setComments, toggle, setToggle, mapCode, setMapCode, showMap, setShowMap, tailwindMobileMap, setTailwindMobileMap, tailwindMobileList}: any = useSearchContext();
+  const {search, location, setLocation, bank, setBank, comments, setComments, toggle, setToggle, mapCode, setMapCode, showMap, setShowMap, tailwindMobileMap, setTailwindMobileMap, tailwindMobileList, setTailwindMobileList}: any = useSearchContext();
 
   const router = useRouter();
   const element = bank;
@@ -29,17 +29,25 @@ export default function MoreInfoBank() {
   const mapCodeDirections = `https://www.google.com/maps/embed/v1/directions?key=${key}&origin=${search}&destination=${location}&mode=transit`
 
   function handleClick() {
-    console.log ("hello")
+    
+    setShowMap(true);
+    console.log(`showMap=`, showMap);
+    setTailwindMobileMap("sm:flex");
+    setTailwindMobileList("sm:hidden");
    
     setMapCode(mapCodeDirections);
     console.log("MapCode:", mapCode);
+
+
   }
 
   return (
     <>
       <div className="p-3">
         <NavBar />
+        <div className="py-2">
         <SearchBar />
+        </div>
       </div>
       <Button onClick={goBack} color="warning" className="ml-3 m-1">
         Go Back
@@ -50,7 +58,7 @@ export default function MoreInfoBank() {
         <div
           id="List"
           className={`
-            overflow-auto p-2 ${tailwindMobileList}
+            overflow-auto p-2  ${tailwindMobileList}
           `}>
           <Card className="">
             <h5 className="text-l font-bold tracking-tight text-gray-900 dark:text-white">
@@ -97,9 +105,10 @@ export default function MoreInfoBank() {
           id="List"
           className="
             overflow-auto
+            
             "
           >
-          <Card className="">
+          <Card className="my-3">
             <h5 className="text-l font-bold tracking-tight text-gray-900 dark:text-white">
               {element.name}
             </h5>

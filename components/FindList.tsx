@@ -48,7 +48,6 @@ export default function FindList() {
     updateMap(key, searchResults[index].lat_lng);
     setCardIndex(index);
   }
-
   return (
     <div className="space-y-1">
       {searchResults.map((element: any, index: number) => {
