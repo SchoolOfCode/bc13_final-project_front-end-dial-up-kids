@@ -16,10 +16,9 @@ describe('template spec', () => {
     cy
       .url()
       .should('include', '/find')
-  })
-  it('contains the map element', ()=> {
+  
     cy
-    .visit('http://localhost:3000/find')
+    // .visit('http://localhost:3000/find')
     // .get ('[`data-testid={`card-2`}]')
     .get('[data-testid="MapMain"]')    
   })
