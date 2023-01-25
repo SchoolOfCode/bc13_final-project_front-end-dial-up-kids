@@ -36,7 +36,7 @@ export default function FindList() {
     updateMap(key, searchResults[index].lat_lng);
   }
 
-  const [cssToggle, setCssToggle] = useState(``)  
+  const [cssToggle, setCssToggle] = useState(false)  
 
   const cssLightMode =`
   hover:bg-blue-400 
@@ -51,15 +51,10 @@ const cssDarkMode = `
   bg-lime-400 dark:bg-green-900
   `;
 
-  useEffect(()=>{
-	setCssToggle(``)
-    setCssToggle (cardSelectColour)
-  },[cardIndex])
-  
-    function selectedCardCheck(index:number) {
-      if (cardIndex === index)
-        return cssToggle
-    }
+    // function selectedCardCheck(index:number) {
+    //   if (cardIndex === index)
+    //     return cssToggle
+    // }
   
   
 
@@ -75,12 +70,12 @@ const cssDarkMode = `
 					onClick={() => {
 						handleCard(index);
 						setCardIndex(index);
-						selectedCardCheck(index)
+						
 					}}
-					className={ `hover:cursor-pointer ${selectedCardCheck(index)}
+					className={ `hover:cursor-pointer $
 					
 					${cssDarkMode} ${cssLightMode}
-					${selectedCardCheck(index)}
+					${ index === cardIndex ? `bg-green-400`: ''}
 					`}
 	
 				>

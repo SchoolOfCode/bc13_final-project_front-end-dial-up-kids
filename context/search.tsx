@@ -25,6 +25,12 @@ export function SearchContextProvider({children}: any) {
 	const [usernameGlobal, setUsernameGlobal] = useState("")
 	const [cardIndex, setCardIndex] = useState(0)
 
+	// const [globalState, setGlobalState] = useState({
+	// 	commentInput:"", 
+	// 	usernameGlobal:"",
+	// 	cardIndex:0 
+	// })
+	// setGlobalState({cardIndex:3, ...globalState})
 	// Note: because using array destructuring need to array destructure out EVERY value on pages it's imported on, otherwise the values will get mixed up due to index order
 	return <SearchContext.Provider value={{search, setSearch, text, setText, searchResults, setSearchResults, location, setLocation, bank, setBank, comments, setComments, toggle, setToggle, mapCode, setMapCode, showMap, setShowMap, tailwindMobileMap, setTailwindMobileMap, tailwindMobileList, setTailwindMobileList, commentInput, setCommentInput, usernameGlobal, setUsernameGlobal, cardIndex, setCardIndex}} >
 		{children}
