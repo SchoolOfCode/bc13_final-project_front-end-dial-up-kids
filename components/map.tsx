@@ -19,6 +19,7 @@ export default function Map({ coord, visibility}: any): JSX.Element {
       <iframe className="md:min-w-[67vw] min-h-[80vh] sm:min-w-[100vw] rounded-md p-3"
         
         loading="lazy"
+        data-testid="MapMain"
         src={`${mapCode}`}>
 
         </iframe>

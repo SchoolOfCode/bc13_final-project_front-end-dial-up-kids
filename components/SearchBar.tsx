@@ -90,12 +90,14 @@ export default function SearchBar() {
         bg-gray-50 border border-gray-300 text-gray-900 
         dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-200 dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search via your location or postcode"
+          data-testid="simple-search"
           required
         />
       </div>
       <button
         onClick={handleClick}
         type="submit"
+        data-testid="SearchBarButton"
         className="p-2.5 ml-2 text-sm font-medium 
       text-white bg-[#FF6720] rounded-lg border border-yellow-700 hover:bg-[#9c0d38] focus:ring-4 focus:outline-none focus:ring-yellow-300 
       dark:bg-[#FF6720] dark:hover:bg-yellow-600 dark:focus:ring-yellow-800"
