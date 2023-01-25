@@ -14,13 +14,16 @@ export default function FoodBankCard({
 }: any) {
   const cssLightMode = `
     hover:bg-blue-400 
-    active:bg-blue-500
-  `;
+    active:bg-blue-500`;
 
   const cssDarkMode = `
     dark:hover:bg-blue-800
-    dark:active:bg-blue-900
-    `;
+    dark:active:bg-blue-900 `;
+
+    const selectedCSS = `
+    bg-green-400 
+    dark:bg-green-800` 
+
 
   return (
     <Card
@@ -29,7 +32,7 @@ export default function FoodBankCard({
       hover:cursor-pointer
       ${cssDarkMode} 
       ${cssLightMode}
-      ${cardIndex === index ? `bg-green-400 dark:bg-blue-500` : ""}
+      ${cardIndex === index ? selectedCSS : ""}
               `}>
       <h5 className="text-l font-bold tracking-tight text-gray-900  dark:text-white">
         {element.name}
