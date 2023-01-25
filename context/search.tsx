@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 //import { Root, Foodbank, Urls, Needs, Politics, Urls2, Urls3 } from '../types/index'
-
+const key = process.env.NEXT_PUBLIC_GOOGLE_KEY
 //const searchResultsInitial: Root[] | [] = [];
 const searchResultsInitial: any = [];
 const showMapInitial: boolean = false;
@@ -17,7 +17,7 @@ export function SearchContextProvider({children}: any) {
 	const [bank, setBank] = useState(searchResultsInitial)
 	const [comments, setComments] = useState([])
 	const [toggle, setToggle] = useState("hidden")
-	const [mapCode, setMapCode] = useState ('default')
+	const [mapCode, setMapCode] = useState (`https://www.google.com/maps/embed/v1/place?key=${key}&q=United Kingdom=GB&zoom=6&center=54.4862, -3.43`)
 	const [showMap, setShowMap] = useState(showMapInitial);
 	const [tailwindMobileMap, setTailwindMobileMap] = useState("sm:hidden");
 	const [tailwindMobileList, setTailwindMobileList] = useState("sm:flex-col");

@@ -21,7 +21,9 @@ export default function About() {
     <div id="everything" className="dark:bg-gray-900">
       <div id='header' className="p-3">
         <NavBar />
+        <div className="py-2">
         <SearchBar />
+        </div>
       </div>
       <div id="main-body">
         <div id="mobile-content" className="md:hidden lg:hidden md:flex-col">
