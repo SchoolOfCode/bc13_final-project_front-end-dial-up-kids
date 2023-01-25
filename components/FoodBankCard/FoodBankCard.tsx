@@ -29,7 +29,7 @@ export default function FoodBankCard({
       hover:cursor-pointer
       ${cssDarkMode} 
       ${cssLightMode}
-      ${cardIndex === index ? `bg-green-400` : ""}
+      ${cardIndex === index ? `bg-green-400 dark:bg-blue-500` : ""}
               `}>
       <h5 className="text-l font-bold tracking-tight text-gray-900  dark:text-white">
         {element.name}
