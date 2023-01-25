@@ -1,7 +1,7 @@
 const key = process.env.NEXT_PUBLIC_GOOGLE_KEY
 import { useSearchContext } from "../context/search";
 import { useState, use } from "react";
-
+//
 export default function Map({ coord, visibility}: any): JSX.Element {
 
     const {
