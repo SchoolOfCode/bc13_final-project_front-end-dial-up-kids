@@ -13,6 +13,7 @@ describe('Basic tests', () => {
     cy
       .get('[data-testid="SearchBarButton"]')
       .click()
+    cy.wait(3000)
     cy
       .url()
       .should('include', '/find')
